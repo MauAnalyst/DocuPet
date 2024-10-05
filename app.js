@@ -16,6 +16,9 @@ app.use(express.json());
 const pictureRouter = require("./routs/picture");
 app.use("/", pictureRouter);
 
+// app.get('/complete', (req, res) => {
+//   res.sendFile(path.join(__dirname, './public/success.html'));
+// });
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);

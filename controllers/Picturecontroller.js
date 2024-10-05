@@ -1,4 +1,5 @@
 const { json } = require('express');
+const path = require('path');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const Picture = require('../models/Pictures');
 const PictureEdit = require("../controllers/PictureEdit");
@@ -33,7 +34,7 @@ exports.create = async (req, res) => {
             ],
             mode: 'payment',
             success_url: `${process.env.BASE_URL}/complete?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.BASE_URL}/cancel`
+            cancel_url: `${process.env.BASE_URL}/`
         })
     
         //console.log(session.id)
@@ -79,9 +80,8 @@ exports.create = async (req, res) => {
     }
 }
 
-exports.sucesse = async (req, res) => {
+exports.success = async (req, res) => {
     try {
-        console.log('chegou aq');
         const result = Promise.all([
             stripe.checkout.sessions.retrieve(req.query.session_id, { expand: ['payment_intent.payment_method'] }),
             stripe.checkout.sessions.listLineItems(req.query.session_id)
@@ -107,7 +107,9 @@ exports.sucesse = async (req, res) => {
         console.log('erro')
     }
     
-    res.send('Your payment was successful');
+    //res.send('Your payment was successful');
+    //res.redirect('../public/success.html')
+    res.sendFile(path.join(__dirname, '../public/success.html'));
 }
 
 exports.findAll = async (req, res) => {
@@ -131,51 +133,53 @@ exports.findAll = async (req, res) => {
     }
 }
 
-exports.updateStatus = async (req, res) => {
-    try {
+// exports.updateStatus = async (req, res) => {
+//     try {
 
-        console.log('chegou aq');
-        const result = Promise.all([
-            stripe.checkout.sessions.retrieve(req.query.session_id, { expand: ['payment_intent.payment_method'] }),
-            stripe.checkout.sessions.listLineItems(req.query.session_id)
-        ]);
+//         console.log('chegou aq');
+//         const result = Promise.all([
+//             stripe.checkout.sessions.retrieve(req.query.session_id, { expand: ['payment_intent.payment_method'] }),
+//             stripe.checkout.sessions.listLineItems(req.query.session_id)
+//         ]);
     
-        const resultImport = JSON.parse(JSON.stringify(await result));
-        const id_strip = resultImport[0].id;
-        const status = resultImport[0].status;
-        const email = resultImport[0].customer_details.email;
+//         const resultImport = JSON.parse(JSON.stringify(await result));
+//         const id_strip = resultImport[0].id;
+//         const status = resultImport[0].status;
+//         const email = resultImport[0].customer_details.email;
     
-        console.log(email)
-        console.log(status)
+//         console.log(email)
+//         console.log(status)
 
-        // const { email } = req.headers; 
-        // const { id_pet } = req.params;
-        // const pictures = await Picture.find();
+//         // const { email } = req.headers; 
+//         // const { id_pet } = req.params;
+//         // const pictures = await Picture.find();
 
-        // Atualiza apenas o campo status no banco de dados
-        // const picture = await Picture.findOneAndUpdate(
-        //     { id_pet }, 
-        //     { status: 'pagamento confirmado' }, 
-        //     { new: true }
-        // );
+//         // Atualiza apenas o campo status no banco de dados
+//         // const picture = await Picture.findOneAndUpdate(
+//         //     { id_pet }, 
+//         //     { status: 'pagamento confirmado' }, 
+//         //     { new: true }
+//         // );
 
-        const picture = await Picture.findOneAndUpdate(
-            { id_strip }, 
-            { status: 'pagamento confirmado', email }, 
-            { new: true }
-        );
+//         const picture = await Picture.findOneAndUpdate(
+//             { id_strip }, 
+//             { status: 'pagamento confirmado', email }, 
+//             { new: true }
+//         );
 
-        enviarEmail.enviarEmail(email, 'id_pet')
+//         enviarEmail.enviarEmail(email, 'id_pet')
 
-        if (!picture) {
-            return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
-        }
+//         if (!picture) {
+//             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
+//         }
 
-        //res.json({ picture, msg: "Status atualizado para 'pagamento confirmado'" });
-    } catch (error) {
-        console.error("Erro ao atualizar status:", error);
-        res.status(500).json({ message: "Erro ao atualizar status" });
-    }
-};
+//         //res.json({ picture, msg: "Status atualizado para 'pagamento confirmado'" });
+//         //res.sendFile(path.join(__dirname, '../public/success.html'));
+
+//     } catch (error) {
+//         console.error("Erro ao atualizar status:", error);
+//         res.status(500).json({ message: "Erro ao atualizar status" });
+//     }
+// };
 
 
