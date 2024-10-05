@@ -9,33 +9,31 @@ const enviarEmail = require('../controllers/EnviaEmail');
 
 exports.create = async (req, res) => {
     try {
+        const { documentos } = req.body
+        const name_produto = documentos.split("-")[0];
+        const price_produto = +documentos.split("-")[1].split(" ")[2].split(" ")[0].replace(",", ".");
+
+        if(price_produto != 9.99 && price_produto != 4.99){
+            return res.json({msg:"valor do produto está divergente"});
+        }
+
         const session = await stripe.checkout.sessions.create({
             line_items: [
                 {
                     price_data: { 
                         currency: 'brl',
                         product_data: {
-                            name: 'Carteira de identidade (CPF)'
+                            name: name_produto
                         },
-                        unit_amount: 4.99 * 100
+                        unit_amount: price_produto * 100
                     },
                     quantity: 1
-                },
-                // {
-                //     price_data: {
-                //         currency: 'brl',
-                //         product_data: {
-                //             name: 'JavaScript T-Shirt'
-                //         },
-                //         unit_amount: 20 * 100
-                //     },
-                //     quantity: 2
-                // }            
+                }          
             ],
             mode: 'payment',
             success_url: `${process.env.BASE_URL}/complete?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.BASE_URL}/`
-        })
+        });
     
         //console.log(session.id)
         const id_strip = session.id;
