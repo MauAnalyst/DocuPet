@@ -131,6 +131,50 @@ exports.findAll = async (req, res) => {
     }
 }
 
+exports.consultaPet = async (req, res) => {
+    const { consulta_pet } = req.body;
+    console.log(consulta_pet)
+
+    try {
+         
+        const picture = await Picture.findOne({ id_pet: consulta_pet });
+
+        if (!picture || picture.length === 0) {
+            return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
+        }
+        
+        // const x = JSON.parse(JSON.stringify(picture))
+        // console.log(x)
+        //console.log('status'+ x.status)
+        if (picture.status === 'pagamento confirmado'){
+            //res.json(picture); 
+            return res.redirect(`/consultar/docupet/${picture.id_pet}`);
+            //res.render('../public/exibeconsulta.ejs', { picture }); 
+
+        }else{
+            return res.json({message: "O pagamento não foi efetuado"});
+
+        }
+    } catch (error) {
+        res.status(500).json({message: "Erro ao buscar imagem"}, error)
+    }
+}
+
+exports.exibeConsulta = async (req, res) => {
+    const id_pet = req.params.id_pet;
+    try {
+        const picture = await Picture.findOne({ id_pet });
+
+        if (!picture) {
+            return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
+        }
+
+        res.json(picture); 
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar imagem", error });
+    }
+}
+
 // exports.updateStatus = async (req, res) => {
 //     try {
 

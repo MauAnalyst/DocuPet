@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Pet</title>
+</head>
+<body>
+    <h1>Dados do Pet</h1>
+    
+    <p><strong>Nome do Pet:</strong> <%= picture.nome_pet %></p>
+    <p><strong>Data de Nascimento:</strong> <%= picture.data_nascimento %></p>
+    <p><strong>Tipo de Pet:</strong> <%= picture.tipo_pet %></p>
+    <p><strong>Cidade:</strong> <%= picture.cidade %></p>
+
+    <h2>Foto do Pet:</h2>
+    <img src="/uploads/<%= picture.foto %>" alt="Foto do Pet" width="300">
+
+</body>
+</html>

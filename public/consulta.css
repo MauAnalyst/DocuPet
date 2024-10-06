@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --color-primary: #47466D;
+    --color-secondary: #3d84a7;
+    --color-accent: #46cdcf;
+    --color-background: #abedd8;
+    --color: #292835;
+  }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai */
+    cursor: pointer; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+    background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*  --------------------------------------------------------  */
+
+form {
+    background-color:#fff;
+    font-size: 1rem;
+    padding: 20px 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.logomarca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    margin-bottom: 50px;
+}
+
+.logomarca h1{
+    font-weight: 700;
+}
+
+.logomarca img{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+label {
+    display: block;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input[type="text"]{
+    width: 100%;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+    margin-bottom: 10px;
+}
+
+/* .ou {
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.ou p {
+    margin-top: -2px;
+}
+
+.barrinha {
+    background-color: var(--color-primary);
+    height: 0.8px;
+    width: 80%;
+} */
+
+
+button {
+    margin: 25px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #398eea;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+    border: 2px solid transparent;
+    transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #398eea;
+    border: 2px solid #398eea;
+}

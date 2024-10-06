@@ -389,7 +389,7 @@ input[type="submit"]:hover {
 #loading {
     display: none;
     position: fixed;
-    background:  linear-gradient(to top, #e8e8e8, #d4d4d7);
+    background:  linear-gradient(to top, #46cdcf, #5ad7d9);
     top: 0;
     bottom: 0;
     left: 0;
