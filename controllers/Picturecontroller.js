@@ -35,7 +35,6 @@ exports.create = async (req, res) => {
             cancel_url: `${process.env.BASE_URL}/`
         });
     
-        //console.log(session.id)
         const id_strip = session.id;
         const { nome_pet, date_nasc, type_pet, city, filiacao_mae, filiacao_pai } = req.body;
         const  file = req.file;
@@ -111,10 +110,7 @@ exports.success = async (req, res) => {
     } catch (error) {
         console.log('erro')
     }
-    
-    //res.send('Your payment was successful');
-    //res.redirect('../public/success.html')
-    // res.sendFile(path.join(__dirname, '../public/success.html'));
+
 }
 
 // exports.findAll = async (req, res) => {
@@ -140,7 +136,6 @@ exports.success = async (req, res) => {
 
 exports.consultaPet = async (req, res) => {
     const { consulta_pet } = req.body;
-    console.log(consulta_pet)
 
     const consulta_id = consulta_pet.trim();
 
@@ -149,14 +144,18 @@ exports.consultaPet = async (req, res) => {
         let picture = await Picture.findOne({ id_pet: consulta_id });
 
         if (!picture) {
-            return res.status(404).json({ message: "Nenhuma imagem encontrada para este ID" });
+            //return res.status(404).json({ message: "Nenhuma imagem encontrada para este ID" });
+            return res.render('consulta', { error: "ID_PET inválido" });
+
+        } else {
+            if (picture.status === 'pagamento confirmado') {
+                return res.redirect(`/consultar/${picture.id_pet}`);
+            } else {
+                return res.json({ message: "O pagamento não foi efetuado" });
+            }
         }
 
-        if (picture.status === 'pagamento confirmado') {
-            return res.redirect(`/consultar/docupet/${picture.id_pet}`);
-        } else {
-            return res.json({ message: "O pagamento não foi efetuado" });
-        }
+        
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar imagem", error });
     }
@@ -171,7 +170,6 @@ exports.exibeConsulta = async (req, res) => {
             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
         }
 
-        //res.json(picture); 
         res.render('exibeConsulta', { picture });
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar imagem", error });

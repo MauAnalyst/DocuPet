@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocuPet - Consultar Docs</title>
     <link rel="icon" href="./imgs/logoPet.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/consulta.css">
+    <link rel="stylesheet" href="/css/consulta.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <form action="/consultar/docupet" method="post">
+    <form action="/consultar" method="post">
         <div class="logomarca">
-            <img src="./imgs/logoPet.png" alt="logo-marca-docpet">
+            <img src="/imgs/logoPet.png" alt="logo-marca-docpet">
             <h1>DocuPet</h1>
         </div>
 
-        <label for="consulta_pet">Id_pet do seu PET:</label>
+        <label for="consulta_pet">ID_PET do seu PET:</label>
         <input type="text" id="consulta_pet" name="consulta_pet" placeholder="leandro-1233456689" required>
+
+        <% if (typeof error !== 'undefined') { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
 
         <button type="submit">Consultar</button>
         <a href="/">< Ir para o início</a>

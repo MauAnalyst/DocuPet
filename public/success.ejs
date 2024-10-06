@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocuPet - Compra Aprovada</title>
     <link rel="icon" href="./imgs/logoPet.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/success.css">
+    <link rel="stylesheet" href="/css/success.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
@@ -15,7 +15,7 @@
         <h2>Obrigado pela sua compra!!</h2>
         <p><span class="text-id">ID_PET:</span><span class="IdPet"><span class="copy"><%= x.id_pet %></span><span id="copy-button" class="material-symbols-outlined">
             content_copy
-            </span></span></p>
+            </span></span><span class="msg_copy">mensagem<br> copiada</span></p>
         <p>Use o ID_PET para consultar os Docs do seu PET, você receberá-lo via email também.</p>
         <!-- <p>Cuidado para não sujar o nome do meu pet &#128518</p> -->
         <div class="buttons">
@@ -28,7 +28,18 @@
         document.querySelector('#copy-button').addEventListener('click', function() {
         const idPet = document.querySelector('.copy').textContent;
         navigator.clipboard.writeText(idPet).then(() => {
-            alert('ID_PET copiado para a área de transferência!');
+            const msgCopy = document.querySelector('.msg_copy');
+            msgCopy.style.display = 'inline'; // Exibe a mensagem
+            msgCopy.style.opacity = '1'; // Faz a mensagem aparecer
+
+            // Remove a mensagem após 3 segundos, com transição suave
+            setTimeout(() => {
+                msgCopy.style.opacity = '0'; // Faz a mensagem desaparecer de forma suave
+                setTimeout(() => {
+                    msgCopy.style.display = 'none'; // Esconde completamente após a transição
+                }, 500); // Tempo suficiente para a transição completar (mesmo tempo que no CSS)
+            }, 1000);
+
         }).catch(err => {
             console.error('Erro ao copiar o ID_PET: ', err);
         });

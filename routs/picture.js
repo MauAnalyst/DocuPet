@@ -7,8 +7,8 @@ const PictureController = require("../controllers/Picturecontroller");
 router.post("/checkout", upload.single("file"), PictureController.create);
 // router.put('/complete', PictureController.updateStatus);
 router.get('/complete', PictureController.success)
-router.post('/consultar/docupet', PictureController.consultaPet);
-router.get('/consultar/docupet/:id_pet', PictureController.exibeConsulta);
+router.post('/consultar', PictureController.consultaPet);
+router.get('/consultar/:id_pet', PictureController.exibeConsulta);
 //router.get("/consulta/:id_pet", PictureController.findAll);
 
 
