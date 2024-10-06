@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --color-primary: #47466D;
+    --color-secondary: #3d84a7;
+    --color-accent: #46cdcf;
+    --color-background: #abedd8;
+    --color: #292835;
+  }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai */
+    cursor: pointer; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+    background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+}
+
+/* --------------------------------------------------------- */
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+#documentos {
+    display: flex;
+}
+
+#section-cpf, #section-cnh, #section-clt {
+    width: 400px;
+    margin: 10px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#section-cpf h2, #section-cnh h2, #section-clt h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color);
+}
+
+/* #custom-carousel .carousel-item {
+    display: flex;
+} */
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.buttons a {
+    font-weight: bold;
+    background-color: #398eea;
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.options {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.material-symbols-outlined {
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 10px;
+    background-color: var(--color);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 842px){
+    #documentos {
+        flex-direction: column;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    /* #section-cpf  {
+        width: 100%;
+    } */
+}
+
+

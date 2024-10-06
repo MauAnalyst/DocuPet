@@ -170,7 +170,8 @@ exports.exibeConsulta = async (req, res) => {
             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
         }
 
-        res.render('exibeConsulta', { picture });
+        const cpf_frete = picture.src_img_cpf_frente
+        res.render('exibeConsulta', { picture, cpf_frete });
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar imagem", error });
     }
