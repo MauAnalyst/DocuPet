@@ -9,10 +9,11 @@ require("./db");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/imgs')));
 
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './public'));
 
 
 app.get('/', (req, res) => {
@@ -22,14 +23,8 @@ app.get('/consultar', (req, res) => {
   res.sendFile(path.join(__dirname, './public/consulta.html'));
 });
 
-
-
 const pictureRouter = require("./routs/picture");
 app.use("/", pictureRouter);
-
-// app.get('/complete', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/success.html'));
-// });
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);

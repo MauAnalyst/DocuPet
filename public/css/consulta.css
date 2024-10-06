@@ -46,6 +46,7 @@ form {
     background-color:#fff;
     font-size: 1rem;
     padding: 20px 50px;
+    max-width: 400px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -89,29 +90,6 @@ input[type="text"]{
     margin-bottom: 10px;
 }
 
-/* .ou {
-    font-weight: bold;
-    font-size: 1rem;
-    width: 100%;
-    text-align: center;
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.ou p {
-    margin-top: -2px;
-}
-
-.barrinha {
-    background-color: var(--color-primary);
-    height: 0.8px;
-    width: 80%;
-} */
-
-
 button {
     margin: 25px auto;
     padding: 10px;
@@ -132,4 +110,13 @@ button:hover {
     background-color: transparent;
     color: #398eea;
     border: 2px solid #398eea;
+}
+
+a {
+    color: var(--color);
+    transition: all 0.1s ease-in-out;
+}
+
+a:hover {
+    color: #49739f;
 }

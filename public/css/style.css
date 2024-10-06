@@ -59,14 +59,15 @@ section:nth-child(1) .init img {
 
 section:nth-child(1) h1 {
     font-size: 2.4rem;
-    color: #fff;
+    color: var(--color);
     margin-top: 20px;
 }
 
 section:nth-child(1) p {
     font-size: 1rem;
-    color: var(--color);
+    color: #fff;
 }
+
 
 #buttons {
     display: flex;
@@ -121,7 +122,7 @@ section:nth-child(1) p {
     border-radius: 10px;
     /* background-color: #398eea; */
     max-height: 350px;
-    background-color: var(--color-background);
+    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -332,9 +333,9 @@ input[type="submit"]:hover {
 }
 #linkGerarDocumentos {
     background-color: var(--color-accent);
-    padding: 5px 15px;
+    padding: 10px 25px;
     margin: 25px 0;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: 700;
     color: #fff;
 }
@@ -389,7 +390,7 @@ input[type="submit"]:hover {
 #loading {
     display: none;
     position: fixed;
-    background:  linear-gradient(to top, #46cdcf, #5ad7d9);
+    background:  linear-gradient(to bottom, #d6e3e4, #5ad7d9);
     top: 0;
     bottom: 0;
     left: 0;
@@ -856,6 +857,25 @@ input[type="submit"]:hover {
 @media screen and (max-width: 842px){
     #section-form {
         flex-direction: column-reverse;
+        gap: 50px;
+    }
+    section:nth-child(1) .init{
+      flex-direction: column;
+      margin-top: 50px;
+      text-align: center;
+    }
+    section:nth-child(1) .init img {
+      width: 70px;
+      height: 70px;
+    }
+    #buttons {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #buttons a {
+      
+      margin: 10px;
     }
 }
 

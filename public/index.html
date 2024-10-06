@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocuPet - Seu PET com identificação</title>
-    <link rel="icon" href="./logoPet.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./imgs/logoPet.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
    <!-- <section class="section-one"> -->
     <section>
         <div class="init">
-            <img src="./logoPet.png" alt="logo pet">
+            <img src="./imgs/logoPet.png" alt="logo pet">
             <div>
                 <h1>DocuPet - Seu PET com identificação</h1>
                 <p>Com o DocuPet, seu pet recebe documentos personalizados como identidade, CPF e muito mais, garantindo praticidade e segurança para todos os momentos importantes da vida do seu companheiro</p>
@@ -22,6 +22,7 @@
         </div>
         
         <div id="buttons">
+            <a href="#section-form">Cadastrar PET</a>
             <a href="/consultar">Consultar Docs PET</a>
             <a href="#comoFunciona">Como Funciona?</a>
             <a href="#contato">Contato</a>
@@ -99,20 +100,20 @@
                     <input type="file" id="file" name="file" accept="image/*" required>
                 </div>
     
-                <input type="submit" value="Gerar Documentos">
+                <input type="submit" value="Cadastrar PET">
             </form>
         </div>
         <div class="descricao-produto">
-            <img src="./ftpet.jpg" alt="imagem dos pets">
+            <img src="./imgs/ftpet.jpg" alt="imagem dos pets">
             <h3>Documentos de Disponíveis:</h3>
             <div id="produtos">
                 <p>Carteira de Identidade(CPF)</p>
                 <p>Carteira de Habilitação (CNH)</p>
                 <p>Carteira de trabalho (PIS/PASEP)</p>
             </div>
-            <p id="warning"><span class="material-symbols-outlined">
+            <!-- <p id="warning"><span class="material-symbols-outlined">
                 warning
-                </span>Os documentos não são oficiais!!</p>
+                </span>Os documentos não são oficiais!!</p> -->
         </div>
     </section>
     <div class="barra"></div>
@@ -126,7 +127,7 @@
             <h3>5. Você receberá um e-mail com a identificação (ID_PET) do seu PET</h3>
 
         </div>
-        <a href="#section-form" id="linkGerarDocumentos">Gerar Documentos</a>
+        <a href="#section-form" id="linkGerarDocumentos">Cadastrar PET</a>
     </section>
     <div class="barra"></div>
     <section id="contato">
@@ -183,6 +184,6 @@
     </div>
 
 
-   <script src="./script.js"></script>
+   <script src="./js/script.js"></script>
 </body>
 </html>
