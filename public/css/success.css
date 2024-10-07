@@ -104,7 +104,7 @@ section p {
 
 .msg_copy {
     display: none;
-    position: fixed;
+    position: absolute;
     right: 10%;
     background-color: #fff;
     color: var(--color);

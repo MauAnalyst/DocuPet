@@ -49,17 +49,19 @@ exports.create = async (req, res) => {
         let cnh_path = 'public/uploads/naoAdquirido.png'
         let clt_path = 'public/uploads/naoAdquirido.png'
 
+        const name_pet = `${nome_pet} (${type_pet})`;
+
         if(price_produto == 4.99){
-            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, nome_pet,file.filename);
-            const img_cpf_verso = await PictureEdit.createCpfVerso(nome_pet, date_nasc, filiacao, city, num_cpf, file.filename);
+            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, name_pet,file.filename);
+            const img_cpf_verso = await PictureEdit.createCpfVerso(name_pet, date_nasc, filiacao, city, num_cpf, file.filename);
             cpf_frente_path = img_cpf_frete;
             cpf_verso_path = img_cpf_verso;
 
         }else{
-            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, nome_pet,file.filename);
-            const img_cpf_verso = await PictureEdit.createCpfVerso(nome_pet, date_nasc, filiacao, city, num_cpf, file.filename);
-            const img_cnh = await PictureEdit.createCNH(file.path, nome_pet, num_cpf, filiacao, num_cnh, file.filename);
-            const img_clt = await PictureEdit.createCLT(file.path, nome_pet, num_clt, file.filename);
+            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, nome_pet, file.filename);
+            const img_cpf_verso = await PictureEdit.createCpfVerso(name_pet, date_nasc, filiacao, city, num_cpf, file.filename);
+            const img_cnh = await PictureEdit.createCNH(file.path, name_pet, num_cpf, filiacao, num_cnh, file.filename);
+            const img_clt = await PictureEdit.createCLT(file.path, name_pet, num_clt, file.filename);
             cpf_frente_path = img_cpf_frete;
             cpf_verso_path = img_cpf_verso;
             cnh_path = img_cnh;
@@ -168,8 +170,6 @@ exports.exibeConsulta = async (req, res) => {
             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
         }
 
-        const cpf_frete = picture.src_img_cpf_frente
-        console.log(cpf_frete)
         res.render('exibeConsulta', { picture });
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar imagem", error });
