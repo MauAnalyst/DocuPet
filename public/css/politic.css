@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --color-primary: #47466D;
+    --color-secondary: #3d84a7;
+    --color-accent: #46cdcf;
+    --color-background: #abedd8;
+    --color: #292835;
+  }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai */
+    cursor: pointer; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+    background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+}
+
+/* -------------------------------------------------------------- */
+
+.politic {
+    max-width: 900px; /* Define a largura máxima da seção */
+    margin: 0 auto 20px  auto; /* Centraliza a seção horizontalmente */
+    padding: 20px; /* Adiciona espaçamento interno */
+    background-color: #f9f9f9; /* Fundo claro */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+h2 {
+    font-size: 2em; /* Tamanho da fonte do título principal */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    color: #333; /* Cor do texto do título */
+}
+
+h3 {
+    font-size: 1.5em; /* Tamanho da fonte dos subtítulos */
+    margin-top: 20px; /* Espaçamento acima do subtítulo */
+    color: #555; /* Cor do texto dos subtítulos */
+}
+
+h4 {
+    font-size: 1.2em; /* Tamanho da fonte dos subtítulos menores */
+    margin-top: 15px; /* Espaçamento acima do subtítulo menor */
+    color: #666; /* Cor do texto dos subtítulos menores */
+}
+
+p {
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    margin-bottom: 15px; /* Espaçamento abaixo do parágrafo */
+    color: #444; /* Cor do texto do parágrafo */
+}
+
+ul {
+    margin: 10px 0; /* Margem para a lista */
+    padding-left: 20px; /* Espaçamento à esquerda da lista */
+}
+
+a {
+    color: #007BFF; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+
+#back {
+    color: var(--color);
+    cursor: pointer;
+    padding-top: 200px;
+}
+
+#section-voltar {
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 842px){
+    body {
+        width: 95%;
+    }
+}

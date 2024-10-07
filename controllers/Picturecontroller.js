@@ -36,7 +36,7 @@ exports.create = async (req, res) => {
         });
     
         const id_strip = session.id;
-        const { nome_pet, date_nasc, type_pet, city, filiacao_mae, filiacao_pai } = req.body;
+        const { nome_pet, date_nasc, type_pet, city, filiacao } = req.body;
         const  file = req.file;
         const id_pet = `${nome_pet.split(" ")[0]}-${file.filename.slice(0, file.filename.indexOf("."))}`;
 
@@ -44,7 +44,28 @@ exports.create = async (req, res) => {
         const num_clt = NumberDocs.gerarNclt();
         const num_cnh = NumberDocs.gerarNcnh();
 
-        const editedImagePath = await PictureEdit.createImage(file.path, nome_pet,file.filename);
+        let cpf_frente_path = ''
+        let cpf_verso_path = ''
+        let cnh_path = 'public/uploads/naoAdquirido.png'
+        let clt_path = 'public/uploads/naoAdquirido.png'
+
+        if(price_produto == 4.99){
+            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, nome_pet,file.filename);
+            const img_cpf_verso = await PictureEdit.createCpfVerso(nome_pet, date_nasc, filiacao, city, num_cpf, file.filename);
+            cpf_frente_path = img_cpf_frete;
+            cpf_verso_path = img_cpf_verso;
+
+        }else{
+            const img_cpf_frete = await PictureEdit.createCpfFrente(file.path, nome_pet,file.filename);
+            const img_cpf_verso = await PictureEdit.createCpfVerso(nome_pet, date_nasc, filiacao, city, num_cpf, file.filename);
+            const img_cnh = await PictureEdit.createCNH(file.path, nome_pet, num_cpf, filiacao, num_cnh, file.filename);
+            const img_clt = await PictureEdit.createCLT(file.path, nome_pet, num_clt, file.filename);
+            cpf_frente_path = img_cpf_frete;
+            cpf_verso_path = img_cpf_verso;
+            cnh_path = img_cnh;
+            clt_path = img_clt;
+        }
+        
 
         const picture = new Picture({
             id_strip,
@@ -54,9 +75,11 @@ exports.create = async (req, res) => {
             type_pet,
             id_pet,
             city,
-            filiacao_mae,
-            filiacao_pai,
-            src_img_cpf_frente: editedImagePath,
+            filiacao,
+            src_img_cpf_frente: cpf_frente_path,
+            src_img_cpf_verso: cpf_verso_path,
+            src_cnh: cnh_path,
+            src_clt: clt_path,
             num_cpf,
             num_clt,
             num_cnh,
@@ -112,27 +135,6 @@ exports.success = async (req, res) => {
     }
 
 }
-
-// exports.findAll = async (req, res) => {
-//     try {
-//         const id_pet = req.params;
-//         const picture = await Picture.find(id_pet);
-
-//         if (!picture || picture.length === 0) {
-//             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
-//         }
-
-        
-//         const x = JSON.parse(JSON.stringify(picture))
-//         if (x[0].status === 'aguardando pagamento'){
-//             return res.json({message: "O pagamento não foi efetuado"})
-//         }else{
-//             res.json(picture);
-//         }
-//     } catch (error) {
-//         res.status(500).json({message: "Erro ao buscar imagem"}, error)
-//     }
-// }
 
 exports.consultaPet = async (req, res) => {
     const { consulta_pet } = req.body;

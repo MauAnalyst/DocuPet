@@ -21,8 +21,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
+app.get('/politc-priv', (req, res) => {
+  res.render('politic', { error: null })
+});
+
 app.get('/consultar', (req, res) => {
-  //res.sendFile(path.join(__dirname, './public/consulta.html'));
   res.render('consulta', { error: null })
 });
 
