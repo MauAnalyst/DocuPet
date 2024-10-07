@@ -30,10 +30,11 @@
                 <div class="carousel-inner" id="custom-carousel">
                   <div class="carousel-item active text-center">
                     <!-- <img class="d-block w-100" src="/upload/cpf-frente-1728229378240.jpg" alt="Primeiro Slide"> -->
-                    <img class="d-block w-100" src="/<%= cpf_frete %>" alt="Primeiro Slide">
+                    <%= %>
+                    <img class="d-block w-100" src="<%= picture.src_img_cpf_frente.slice(6) %>" alt="Primeiro Slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/upload/cpf-frente-1728232198725.jpg" alt="Segundo Slide">
+                    <img class="d-block w-100" src="/uploads/cpf_frente_1728243553051.jpg" alt="Segundo Slide">
                   </div>
                   <!-- <div class="carousel-item">
                     <img class="d-block w-100" src="/upload/cpf-frente-1728232386556.jpeg" alt="Terceiro Slide">
@@ -112,7 +113,11 @@
         </section>
     </section>
 
-
+    <section class="bottom">
+        <footer class="footer">
+            <p>&copy; 2024 DocuPet. Todos os direitos reservados. <a class="footer-link">Termos de Uso e Política de Privacidade</a></p>  
+        </footer>
+    </section>
 
      <!-- <h1>Dados do Pet</h1>
     <p>Nome: <%= picture.nome_pet %></p>

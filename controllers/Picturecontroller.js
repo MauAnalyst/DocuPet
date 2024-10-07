@@ -171,7 +171,8 @@ exports.exibeConsulta = async (req, res) => {
         }
 
         const cpf_frete = picture.src_img_cpf_frente
-        res.render('exibeConsulta', { picture, cpf_frete });
+        console.log(cpf_frete)
+        res.render('exibeConsulta', { picture });
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar imagem", error });
     }

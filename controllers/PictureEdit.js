@@ -78,7 +78,7 @@ function createImage(img_pet, nome_pet, filename) {
       ctx.fillText(textName, heightName, 0);
 
       // Salva a imagem no sistema de arquivos
-      const outputPath = `upload/cpf-frente-${filename}`; // Caminho onde a imagem será salva
+      const outputPath = `public/uploads/cpf_frente_${filename}`; // Caminho onde a imagem será salva
       fs.writeFileSync(outputPath, canvas.toBuffer('image/png')); // Salva a imagem
 
       resolve(outputPath); // Retorna o caminho da imagem gerada
