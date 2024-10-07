@@ -4,7 +4,6 @@ function gerarCPF() {
         cpf += Math.floor(Math.random() * 10);
     }
 
-    // Cálculo dos dígitos verificadores
     let soma1 = 0;
     for (let i = 0; i < 9; i++) {
         soma1 += parseInt(cpf[i]) * (10 - i);
@@ -31,7 +30,6 @@ function gerarNclt() {
         clt += Math.floor(Math.random() * 10);
     }
 
-    // Cálculo do dígito verificador (apenas um exemplo)
     const dVerificador = Math.floor(Math.random() * 10);
     const dSuffix = Math.floor(Math.random() * 10);
     
@@ -45,11 +43,5 @@ function gerarNcnh() {
     }
     return `00${cnh}`;
 }
-
-// Testando as funções
-// const cpfGerado = gerarCPF();
-// const nCLTgerado = gerarNclt();
-// const nCNHgerado = gerarNcnh();
-// console.log(cpfGerado, nCLTgerado, nCNHgerado);
 
 module.exports = { gerarCPF, gerarNclt, gerarNcnh };

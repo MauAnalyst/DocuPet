@@ -6,16 +6,14 @@ const senha = process.env.EMAILPASS;
 
 
 function enviarEmail(destinatario, idPet) {
-    // Configuração do transportador
     const transporter = nodemailer.createTransport({
-        service: 'gmail', // ou outro serviço de e-mail
+        service: 'gmail',
         auth: {
-            user: email,//EMAILUSER, // seu e-mail
-            pass: senha //EMAILPASS
+            user: email,
+            pass: senha 
         }
     });
 
-    // Conteúdo HTML para o e-mail
     const htmlContent = `
     <div style="font-family: Arial, sans-serif; text-align: center; margin: 50px 0; background-color: #1F2833; padding: 20px 0; border-radius: 15px;">
         <div style="max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" >

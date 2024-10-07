@@ -24,21 +24,15 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>->
                 </ol> 
                 <div class="carousel-inner" id="custom-carousel">
                   <div class="carousel-item active text-center">
-                    <!-- <img class="d-block w-100" src="/upload/cpf-frente-1728229378240.jpg" alt="Primeiro Slide"> -->
-                    <%= %>
                     <img class="d-block w-100" src="<%= picture.src_img_cpf_frente.slice(6) %>" alt="Primeiro Slide">
                   </div>
                   <div class="carousel-item">
                     <img class="d-block w-100" src="<%= picture.src_img_cpf_verso.slice(6) %>" alt="Segundo Slide">
                   </div>
-                  <!-- <div class="carousel-item">
-                    <img class="d-block w-100" src="/upload/cpf-frente-1728232386556.jpeg" alt="Terceiro Slide">
-                  </div> -->
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,29 +49,12 @@
             <h2>Carteira de Habilitação (CNH)</h2>
             <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                  <!-- <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li> -->
-                  <!--<li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-                   <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li> -->
                 </ol> 
                 <div class="carousel-inner" id="custom-carousel">
                   <div class="carousel-item active text-center">
                     <img class="d-block w-100" src="<%= picture.src_cnh.slice(6) %>" alt="Primeiro Slide">
                   </div>
-                   <!-- <div class="carousel-item">
-                    <img class="d-block w-100" src="/upload/cpf-frente-1728232198725.jpg" alt="Segundo Slide">
-                  </div>
-                 <div class="carousel-item">
-                    <img class="d-block w-100" src="/upload/cpf-frente-1728232386556.jpeg" alt="Terceiro Slide">
-                  </div> -->
                 </div>
-                <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Próximo</span>
-                </a> -->
             </div>
             <div class="options"><span class="material-symbols-outlined">sim_card_download</span><span class="material-symbols-outlined">share</span></div>
         </section>
@@ -87,7 +64,6 @@
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
-                  <!--<li data-target="#carouselExampleIndicators3" data-slide-to="2"></li> -->
                 </ol> 
                 <div class="carousel-inner" id="custom-carousel">
                   <div class="carousel-item active text-center">
@@ -96,9 +72,6 @@
                    <div class="carousel-item">
                     <img class="d-block w-100" src="<%= picture.src_clt.slice(6) %>" alt="Segundo Slide">
                   </div>
-                  <!--<div class="carousel-item">
-                    <img class="d-block w-100" src="/upload/cpf-frente-1728232386556.jpeg" alt="Terceiro Slide">
-                  </div> -->
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -118,13 +91,7 @@
             <p>&copy; 2024 DocuPet. Todos os direitos reservados. <a class="footer-link" href="/politc-priv">Termos de Uso e Política de Privacidade</a></p>  
         </footer>
     </section>
-
-     <!-- <h1>Dados do Pet</h1>
-    <p>Nome: <%= picture.nome_pet %></p>
-    <p>Data de Nascimento: <%= picture.date_nasc %></p>
-    <p>Tipo: <%= picture.type_pet %></p>
-    <p>Cidade: <%= picture.city %></p> -->
-
+    
     <script src="/js/exibeConsulta.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -62,27 +62,27 @@ h3 {
 h4 {
     font-size: 1.2em; /* Tamanho da fonte dos subtítulos menores */
     margin-top: 15px; /* Espaçamento acima do subtítulo menor */
-    color: #666; /* Cor do texto dos subtítulos menores */
+    color: #666; 
 }
 
 p {
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
-    margin-bottom: 15px; /* Espaçamento abaixo do parágrafo */
-    color: #444; /* Cor do texto do parágrafo */
+    line-height: 1.6; 
+    margin-bottom: 15px;
+    color: #444;
 }
 
 ul {
-    margin: 10px 0; /* Margem para a lista */
-    padding-left: 20px; /* Espaçamento à esquerda da lista */
+    margin: 10px 0;
+    padding-left: 20px;
 }
 
 a {
-    color: #007BFF; /* Cor do link */
-    text-decoration: none; /* Remove sublinhado do link */
+    color: #007BFF; 
+    text-decoration: none; 
 }
 
 a:hover {
-    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+    text-decoration: underline; 
 }
 
 

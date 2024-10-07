@@ -89,9 +89,7 @@ exports.create = async (req, res) => {
         
 
         await picture.save();
-
-        //res.json({picture, msg:"imagem salva com sucesso"})
-        res.redirect(session.url)
+        res.redirect(session.url);
         
 
     } catch (error) {
@@ -142,11 +140,9 @@ exports.consultaPet = async (req, res) => {
     const consulta_id = consulta_pet.trim();
 
     try {
-        // Verifica se o input é um email ou um ID_pet
         let picture = await Picture.findOne({ id_pet: consulta_id });
 
         if (!picture) {
-            //return res.status(404).json({ message: "Nenhuma imagem encontrada para este ID" });
             return res.render('consulta', { error: "ID_PET inválido" });
 
         } else {
@@ -180,53 +176,5 @@ exports.exibeConsulta = async (req, res) => {
     }
 }
 
-// exports.updateStatus = async (req, res) => {
-//     try {
-
-//         console.log('chegou aq');
-//         const result = Promise.all([
-//             stripe.checkout.sessions.retrieve(req.query.session_id, { expand: ['payment_intent.payment_method'] }),
-//             stripe.checkout.sessions.listLineItems(req.query.session_id)
-//         ]);
-    
-//         const resultImport = JSON.parse(JSON.stringify(await result));
-//         const id_strip = resultImport[0].id;
-//         const status = resultImport[0].status;
-//         const email = resultImport[0].customer_details.email;
-    
-//         console.log(email)
-//         console.log(status)
-
-//         // const { email } = req.headers; 
-//         // const { id_pet } = req.params;
-//         // const pictures = await Picture.find();
-
-//         // Atualiza apenas o campo status no banco de dados
-//         // const picture = await Picture.findOneAndUpdate(
-//         //     { id_pet }, 
-//         //     { status: 'pagamento confirmado' }, 
-//         //     { new: true }
-//         // );
-
-//         const picture = await Picture.findOneAndUpdate(
-//             { id_strip }, 
-//             { status: 'pagamento confirmado', email }, 
-//             { new: true }
-//         );
-
-//         enviarEmail.enviarEmail(email, 'id_pet')
-
-//         if (!picture) {
-//             return res.status(404).json({ message: "Nenhuma imagem encontrada para este id" });
-//         }
-
-//         //res.json({ picture, msg: "Status atualizado para 'pagamento confirmado'" });
-//         //res.sendFile(path.join(__dirname, '../public/success.html'));
-
-//     } catch (error) {
-//         console.error("Erro ao atualizar status:", error);
-//         res.status(500).json({ message: "Erro ao atualizar status" });
-//     }
-// };
 
 

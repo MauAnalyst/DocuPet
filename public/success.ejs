@@ -17,7 +17,6 @@
             content_copy
             </span></span><span class="msg_copy">mensagem<br> copiada</span></p>
         <p>Use o ID_PET para consultar os Docs do seu PET, você receberá-lo via email também.</p>
-        <!-- <p>Cuidado para não sujar o nome do meu pet &#128518</p> -->
         <div class="buttons">
             <a href="/consultar">Consultar Docs PET</a>
             <a href="/">Cadastrar novo PET</a>
@@ -29,15 +28,14 @@
         const idPet = document.querySelector('.copy').textContent;
         navigator.clipboard.writeText(idPet).then(() => {
             const msgCopy = document.querySelector('.msg_copy');
-            msgCopy.style.display = 'inline'; // Exibe a mensagem
-            msgCopy.style.opacity = '1'; // Faz a mensagem aparecer
+            msgCopy.style.display = 'inline';
+            msgCopy.style.opacity = '1'; 
 
-            // Remove a mensagem após 3 segundos, com transição suave
             setTimeout(() => {
-                msgCopy.style.opacity = '0'; // Faz a mensagem desaparecer de forma suave
+                msgCopy.style.opacity = '0';
                 setTimeout(() => {
-                    msgCopy.style.display = 'none'; // Esconde completamente após a transição
-                }, 500); // Tempo suficiente para a transição completar (mesmo tempo que no CSS)
+                    msgCopy.style.display = 'none';
+                }, 500);
             }, 1000);
 
         }).catch(err => {
